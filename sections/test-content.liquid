@@ -1,5 +1,6 @@
 <div>
   <img src="{{ section.settings.image.src | img_url }}" alt="{{ section.settings.image.alt }}">
+  <h1></h1>
 </div>
 
 {% schema %}
@@ -13,6 +14,12 @@
         "type": "image_picker",
         "id": "image",
         "label": "Background Image"
+      },
+      {
+        "type": "text",
+        "label": "Header Text",
+        "id": "header-text",
+        "default": "Header Text!"
       }
     ]
   }
