@@ -1,2 +1,19 @@
-{{ 'component-image-with-text.css' | asset_url | stylesheet_tag }}
-<h1>Test</h1>
+<div>
+  <img src="{{ section.settings.image.src | img_url }}" alt="{{ section.settings.image.alt }}">
+</div>
+
+{% schema %}
+  {
+    "name": "Test Hero",
+    "tag": "section",
+    "class": "test-hero",
+    "limit": 1,
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }
+{% endschema %}
