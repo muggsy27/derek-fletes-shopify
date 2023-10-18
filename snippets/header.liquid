@@ -1,0 +1,22 @@
+<header>
+  <div class="flex items-center justify-between w-full p-4 max-w-screen-xl mx-auto">
+    <div class="flex-1 flex gap-4 md:hidden">
+      <img class="w-6 cursor-pointer" src="{{ 'hamburger.svg' | asset_url }}">
+      <img class="w-6" src="{{ 'search.svg' | asset_url }}">
+    </div>
+    <div class="flex-1 md:justify-start justify-center flex"><img class="w-10" src="{{ 'logo.svg' | asset_url }}"></div>
+    <div class="flex-1 hidden md:flex justify-center">
+      <ul class="flex gap-4 items-center text-lg font-medium">
+        <li>Snowboards</li>
+        <li>Accessories</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="flex items-center flex-1 justify-end gap-4">
+      <div class="flex items-center gap-1">
+        <img class="w-6" src="{{ 'cart.svg' | asset_url }}">
+        <p class="text-lg font-medium">0</p>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,12 +1,12 @@
 {
   "sections": {
-    "test-content": {
-      "type": "test-content",
+    "hero": {
+      "type": "hero",
       "settings": {
       }
     }
   },
   "order": [
-    "test-content"
+    "hero"
   ]
 }
