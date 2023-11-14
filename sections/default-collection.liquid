@@ -1,0 +1,32 @@
+<div class="mx-auto flex max-w-screen-xl flex-col gap-12 px-4 py-12 lg:py-24">
+  <h2 class="text-center text-3xl font-bold md:text-left">All Snowboards</h2>
+
+  <div class="flex grid-cols-3 flex-col gap-8 md:grid">
+    {% for product in collections['featured-snowboards'].products %}
+      <a href="{{ product.url }}">
+        <div class="flex cursor-pointer flex-col items-center gap-4">
+          <div class="overflow-hidden">
+            <img
+              class="mx-auto max-h-cardHeight transition hover:opacity-50"
+              loading="lazy"
+              src="{{ product.featured_image | product_img_url: 'large' }}"
+              alt="{{ product.title }}"
+            >
+          </div>
+          <h3 class="text-lg font-bold">{{ product.title }}</h3>
+          <p>{{ product.price | money_without_trailing_zeros }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Default Collection",
+  "tag": "section",
+  "class": "default-collection",
+  "limit": 1,
+  "settings": []
+}
+{% endschema %}

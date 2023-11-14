@@ -1,1 +1,44 @@
-{%- render 'cart-drawer' -%}
+<div class="cart-drawer fixed right-0 top-0 z-[999] inline-block h-full translate-x-full bg-white p-4 transition">
+  <h2>Your Cart ({{ cart.item_count }})</h2>
+
+  <div class="close absolute right-4 top-4 cursor-pointer">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="h-6 w-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </div>
+
+  {% if cart.empty? %}
+    <p>Your cart is empty</p>
+  {% else %}
+    {% form 'cart', cart %}
+      {% for item in cart.items %}
+        <img src="{{ item.image | image_url | product_img_url: 'large' }}" alt="">
+        <h3>{{ item.product.title }}</h3>
+        <p>{{ item.variant.title }}</p>
+        <a href="{{ item.url_to_remove }}">Remove</a>
+        <p>{{ item.final_line_price | money }}</p>
+        <input name="quantity" value="{{ item.quantity }}">
+      {% endfor %}
+      <p>{{ cart.total_discount | money }}</p>
+      <p>{{ cart.total_price | money }}</p>
+      <button type="submit" name="checkout">Checkout</button>
+    {% endform %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart Drawer",
+  "settings": []
+}
+{% endschema %}

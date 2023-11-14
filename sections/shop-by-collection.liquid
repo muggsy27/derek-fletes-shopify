@@ -1,0 +1,49 @@
+<div class="mx-auto flex max-w-screen-xl flex-col gap-12 px-4 py-12 lg:py-24">
+  <h2 class="text-center text-3xl font-bold md:text-left">Shop By Collection</h2>
+
+  <div class="flex grid-cols-3 flex-col gap-8 md:grid">
+    <a class="" href="">
+      <div class="flex flex-col gap-4">
+        <img
+          src="{{  'snowboard-collection.jpg' |  asset_url }}"
+          alt="snowboard collection"
+          loading="lazy"
+          class="h-full max-h-collectionHeight rounded-lg transition hover:opacity-50"
+        >
+        <p class="text-2xl font-bold">Snowboards</p>
+      </div>
+    </a>
+    <a class="" href="">
+      <div class="flex flex-col gap-4">
+        <img
+          src="{{  'snowboard.jpg' |  asset_url }}"
+          alt="snowboard collection"
+          loading="lazy"
+          class="h-full max-h-collectionHeight rounded-lg transition hover:opacity-50"
+        >
+        <p class="text-2xl font-bold">Bindings</p>
+      </div>
+    </a>
+    <a class="" href="">
+      <div class="flex flex-col gap-4">
+        <img
+          src="{{  'goggles.jpg' |  asset_url }}"
+          alt="goggles collection"
+          loading="lazy"
+          class="h-full max-h-collectionHeight rounded-lg transition hover:opacity-50"
+        >
+        <p class="text-2xl font-bold">Goggles</p>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shop By Collection",
+  "tag": "section",
+  "class": "shop-by-collection",
+  "limit": 1,
+  "settings": []
+}
+{% endschema %}

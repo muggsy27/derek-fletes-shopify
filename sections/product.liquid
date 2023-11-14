@@ -1,0 +1,297 @@
+{% style %}
+  .swiper {
+    width: 100%;
+  }
+
+  .swiper-slide-thumb-active {
+    border: 4px solid #4f46e5;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #4f46e5 !important;
+  }
+{% endstyle %}
+
+<div class="mx-auto flex max-w-screen-xl grid-cols-2 flex-col gap-8 px-4 py-12 md:grid md:py-24">
+  <div class="flex flex-col gap-4">
+    <div class="swiper swiper_main">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide !h-auto">
+            <img class="h-full w-full object-cover" src="{{ image.src | product_img_url: 'grande' }}">
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+
+    <div class="swiper swiper_thumbnail">
+      <div class="swiper-wrapper">
+        {% for image in product.images %}
+          <div class="swiper-slide !h-auto flex-1 border-4 border-transparent">
+            <img class="h-full w-full object-cover" src="{{ image.src | product_img_url: 'grande' }}">
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col gap-8">
+    <div>
+      <p class="text-sm text-indigo-600">{{ product.vendor }}</p>
+      <div class="flex items-center justify-between text-xl font-bold">
+        <p class="text-xl font-bold lg:text-3xl">{{ product.title }}</p>
+        <p>{{ product.price | money_without_trailing_zeros }}</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-8">
+      <div class="flex gap-2">
+        <p>5.0</p>
+        <div class="flex">
+          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+        </div>
+      </div>
+      <p>
+        <a href="{{ product.url }}/#reviews">See all 512 reviews</a>
+      </p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <p class="text-lg font-bold">Size</p>
+      <div class="flex items-center gap-4">
+        {% form 'product', product %}
+          <div class="flex flex-col gap-4">
+            <div class="flex gap-4">
+              {% for variant in product.variants %}
+                <label for="size">
+                  <input
+                    class="checked:bg-indigo-600"
+                    type="radio"
+                    name="size"
+                    id="size"
+                    value="{{ variant.id }}"
+                    {% if forloop.index0 == 0 %}
+                      checked
+                    {% endif %}
+                  >
+                  {{ variant.title }}cm
+                </label>
+              {% endfor %}
+            </div>
+            <button
+              class="block rounded-lg bg-black px-8 py-3 text-center text-lg text-white transition hover:bg-indigo-600 md:block"
+              type="submit"
+            >
+              Add To Cart
+            </button>
+          </div>
+        {% endform %}
+      </div>
+    </div>
+    <hr class="bg-black/200 h-[1px]">
+    <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <p class="text-lg font-bold">Description</p>
+        <div class="flex flex-col gap-4">{{ product.description }}</div>
+      </div>
+      <hr class="bg-black/200 h-[1px]">
+      <div class="flex flex-col gap-4">
+        <p class="text-lg font-bold">Shipping</p>
+        <p>Free carbon-neutral shipping, anywhere around the world, on all orders.</p>
+      </div>
+      <hr class="bg-black/200 h-[1px]">
+      <div class="flex flex-col gap-4">
+        <p class="text-lg font-bold">Returns</p>
+        <p>
+          We have a 30-day return policy, which means you have 30 days after receiving your item to request a return.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mx-auto max-w-screen-xl px-4 py-12 md:py-24">
+  <div class="flex flex-col gap-12">
+    <h2 class="text-3xl font-bold" id="reviews">Recent reviews</h2>
+    <div class="flex flex-col gap-12 border-t py-12">
+      <div class="flex flex-col gap-4 md:flex-row-reverse md:gap-24">
+        <div class="md: flex flex-1 flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+            </div>
+            <p>5</p>
+          </div>
+          <p class="font-bold">Can't say enough good things</p>
+          <p class="text-black/50">
+            I was really pleased with the overall shopping experience. My order even included a little personal,
+            handwritten note, which delighted me!
+          </p>
+          <p class="text-black/50">
+            The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I
+            would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <p class="font-bold">Risko M</p>
+          <p class="text-black/50">|</p>
+          <p class="text-black/50">May 16, 2021</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 md:flex-row-reverse md:gap-24">
+        <div class="md: flex flex-1 flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+            </div>
+            <p>5</p>
+          </div>
+          <p class="font-bold">Can't say enough good things</p>
+          <p class="text-black/50">
+            I was really pleased with the overall shopping experience. My order even included a little personal,
+            handwritten note, which delighted me!
+          </p>
+          <p class="text-black/50">
+            The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I
+            would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <p class="font-bold">Risko M</p>
+          <p class="text-black/50">|</p>
+          <p class="text-black/50">May 16, 2021</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 md:flex-row-reverse md:gap-24">
+        <div class="md: flex flex-1 flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+            </div>
+            <p>5</p>
+          </div>
+          <p class="font-bold">Can't say enough good things</p>
+          <p class="text-black/50">
+            I was really pleased with the overall shopping experience. My order even included a little personal,
+            handwritten note, which delighted me!
+          </p>
+          <p class="text-black/50">
+            The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I
+            would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <p class="font-bold">Risko M</p>
+          <p class="text-black/50">|</p>
+          <p class="text-black/50">May 16, 2021</p>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 md:flex-row-reverse md:gap-24">
+        <div class="md: flex flex-1 flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="flex">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+            </div>
+            <p>5</p>
+          </div>
+          <p class="font-bold">Can't say enough good things</p>
+          <p class="text-black/50">
+            I was really pleased with the overall shopping experience. My order even included a little personal,
+            handwritten note, which delighted me!
+          </p>
+          <p class="text-black/50">
+            The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I
+            would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <p class="font-bold">Risko M</p>
+          <p class="text-black/50">|</p>
+          <p class="text-black/50">May 16, 2021</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="product-recommendations mx-auto flex max-w-screen-xl flex-col gap-8 px-4 py-12 md:py-24"
+  data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related"
+>
+  {% if recommendations.performed? and recommendations.products_count > 0 %}
+    {% if recommendations.intent == 'related' %}
+      <h2 class="text-3xl font-bold">You may also like</h2>
+    {% elsif recommendations.intent == 'complementary' %}
+      <h2>Pair it with</h2>
+    {% endif %}
+    <ul class="flex items-stretch gap-4">
+      {% for product in recommendations.products %}
+        <li class="product">
+          <a href="{{ product.url }}" class="flex h-full flex-col gap-4">
+            <img
+              class="product__img mx-auto max-h-cardHeight transition hover:opacity-50"
+              src="{{ product.featured_image | product_img_url: 'large' }}"
+              alt="{{ product.featured_image.alt }}"
+            >
+            <p class="product__title text-center">{{ product.title }}</p>
+            <p class="product__price mt-auto text-center">{{ product.price | money }}</p>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+{% javascript %}
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+    const url = productRecommendationsSection.dataset.url;
+    fetch(url)
+      .then((response) => response.text())
+      .then((text) => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.product-recommendations');
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  };
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const observer = new IntersectionObserver(handleIntersection, { rootMargin: '0px 0px 200px 0px' });
+  observer.observe(productRecommendationsSection);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "Product",
+  "tag": "section",
+  "class": "product",
+  "limit": 1,
+  "settings": []
+}
+{% endschema %}
