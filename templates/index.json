@@ -1,7 +1,6 @@
 {
   "sections": {
     "hero": {
-<<<<<<< HEAD
       "type": "hero"
     },
     "default-collection": {
@@ -19,14 +18,5 @@
     "default-collection",
     "shop-by-collection",
     "our-story"
-=======
-      "type": "hero",
-      "settings": {
-      }
-    }
-  },
-  "order": [
-    "hero"
->>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
   ]
 }
