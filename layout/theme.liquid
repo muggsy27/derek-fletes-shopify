@@ -11,21 +11,30 @@
       <link
         rel="icon"
         type="image/png"
+<<<<<<< HEAD
         href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
       >
+=======
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
     {%- endif -%}
 
     {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
       <link
         rel="preconnect"
         href="https://fonts.shopifycdn.com"
+<<<<<<< HEAD
         crossorigin
       >
+=======
+        crossorigin>
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
     {%- endunless -%}
 
     <title>
       {{ page_title }}
       {%- if current_tags %}
+<<<<<<< HEAD
         &ndash; tagged "{{ current_tags | join: ', ' }}"
       {%- endif -%}
       {%- if current_page != 1 %}
@@ -34,6 +43,13 @@
       {%- unless page_title contains shop.name %}
         &ndash; {{ shop.name -}}
       {%- endunless -%}
+=======
+        &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %}
+        &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}{% endunless -%}
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
     </title>
 
     {% if page_description %}
@@ -43,6 +59,7 @@
     {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
+<<<<<<< HEAD
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
       rel="preconnect"
@@ -53,6 +70,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     >
+=======
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -68,11 +87,16 @@
       id="MainContent"
       class="content-for-layout focus-none"
       role="main"
+<<<<<<< HEAD
       tabindex="-1"
     >
+=======
+      tabindex="-1">
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
       {{ content_for_layout }}
       {% section 'cart-drawer' %}
     </main>
+<<<<<<< HEAD
     {{ 'mobile-menu.js' | asset_url | script_tag }}
     {{ 'cart-icon.js' | asset_url | script_tag }}
     {{ 'add-to-cart.js' | asset_url | script_tag }}
@@ -85,5 +109,8 @@
       {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
       {{ 'swiper.js' | asset_url | script_tag }}
     {% endif %}
+=======
+
+>>>>>>> b32a7083bef05910eff96bd7ed32d86583c41406
   </body>
 </html>
