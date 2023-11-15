@@ -85,5 +85,8 @@
       {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
       {{ 'swiper.js' | asset_url | script_tag }}
     {% endif %}
+    {% if template.name == 'cart' %}
+      {{ 'quantity-select.js' | asset_url | script_tag }}
+    {% endif %}
   </body>
 </html>
