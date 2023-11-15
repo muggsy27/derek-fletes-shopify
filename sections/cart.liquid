@@ -1,3 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
 <div class="mx-auto flex max-w-screen-md flex-col gap-12 px-4 py-24">
   <h2 class="text-center text-3xl font-bold">Shopping Cart</h2>
   <hr>
@@ -32,12 +43,16 @@
             <form action="/cart/update" method="post">
               <input
                 type="hidden"
-                name="updates[{{ item.key }}]"
+                name="updates[{{ item.variant_id }}]"
                 value="0"
               >
-              <select name="updates[{{ item.key }}]">
+              <select
+                name="{{ item.variant_id }}"
+                class="product-quantity border-black/200 border-black/200 cursor-pointer rounded-md border bg-white px-3 py-2 font-sans focus:border focus:shadow-none"
+              >
                 {% for i in (1..10) %}
                   <option
+                    class="font-[Arial] text-lg"
                     value="{{ i }}"
                     {% if i == item.quantity %}
                       selected
