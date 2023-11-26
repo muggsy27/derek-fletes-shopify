@@ -11,7 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/muggsy27/derek-fletes-shopify.git"
   },
-  "keywords": [],
+  "keywords": [
+
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

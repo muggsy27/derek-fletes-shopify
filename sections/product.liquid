@@ -18,7 +18,13 @@
       <div class="swiper-wrapper">
         {% for image in product.images %}
           <div class="swiper-slide !h-auto">
-            <img class="h-full w-full object-cover" src="{{ image.src | product_img_url: 'grande' }}">
+            <img
+              height="608"
+              width="608"
+              class="h-full w-full object-cover"
+              src="{{ image.src | image_url }}"
+              loading="eager"
+            >
           </div>
         {% endfor %}
       </div>
@@ -30,7 +36,13 @@
       <div class="swiper-wrapper">
         {% for image in product.images %}
           <div class="swiper-slide !h-auto flex-1 border-4 border-transparent">
-            <img class="h-full w-full object-cover" src="{{ image.src | product_img_url: 'grande' }}">
+            <img
+              height="195"
+              width="195"
+              class="h-full w-full object-cover"
+              src="{{ image.src | image_url }}"
+              loading="eager"
+            >
           </div>
         {% endfor %}
       </div>
@@ -48,11 +60,11 @@
       <div class="flex gap-2">
         <p>5.0</p>
         <div class="flex">
-          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-          <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+          <img height="24" width="24" class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}" loading="lazy">
+          <img height="24" width="24" class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}" loading="lazy">
+          <img height="24" width="24" class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}" loading="lazy">
+          <img height="24" width="24" class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}" loading="lazy">
+          <img height="24" width="24" class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}" loading="lazy">
         </div>
       </div>
       <p>
@@ -121,11 +133,41 @@
         <div class="md: flex flex-1 flex-col gap-4">
           <div class="flex items-center gap-4">
             <div class="flex">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
             </div>
             <p>5</p>
           </div>
@@ -149,11 +191,41 @@
         <div class="md: flex flex-1 flex-col gap-4">
           <div class="flex items-center gap-4">
             <div class="flex">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
             </div>
             <p>5</p>
           </div>
@@ -177,11 +249,41 @@
         <div class="md: flex flex-1 flex-col gap-4">
           <div class="flex items-center gap-4">
             <div class="flex">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
             </div>
             <p>5</p>
           </div>
@@ -205,11 +307,41 @@
         <div class="md: flex flex-1 flex-col gap-4">
           <div class="flex items-center gap-4">
             <div class="flex">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
-              <img class="h-6 w-6 fill-indigo-600" src="{{ 'star.svg' | asset_url }}">
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
+              <img
+                height="24"
+                width="24"
+                class="h-6 w-6 fill-indigo-600"
+                src="{{ 'star.svg' | asset_url }}"
+                loading="lazy"
+              >
             </div>
             <p>5</p>
           </div>
@@ -248,8 +380,11 @@
         <li class="product">
           <a href="{{ product.url }}" class="flex h-full flex-col gap-4">
             <img
+              loading="lazy"
               class="product__img mx-auto max-h-cardHeight transition hover:opacity-50"
-              src="{{ product.featured_image | product_img_url: 'large' }}"
+              height="280"
+              width="280"
+              src="{{ product.featured_image | image_url }}"
               alt="{{ product.featured_image.alt }}"
             >
             <p class="product__title text-center">{{ product.title }}</p>
@@ -292,6 +427,8 @@
   "tag": "section",
   "class": "product",
   "limit": 1,
-  "settings": []
+  "settings": [
+
+  ]
 }
 {% endschema %}

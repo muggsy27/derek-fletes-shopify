@@ -22,7 +22,7 @@
   {% else %}
     {% form 'cart', cart %}
       {% for item in cart.items %}
-        <img src="{{ item.image | image_url | product_img_url: 'large' }}" alt="">
+        <img height="128" width="128" src="{{ item.image | image_url }}" alt="" loading="lazy">
         <h3>{{ item.product.title }}</h3>
         <p>{{ item.variant.title }}</p>
         <a href="{{ item.url_to_remove }}">Remove</a>
@@ -39,6 +39,8 @@
 {% schema %}
 {
   "name": "Cart Drawer",
-  "settings": []
+  "settings": [
+
+  ]
 }
 {% endschema %}

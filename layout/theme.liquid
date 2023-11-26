@@ -43,16 +43,18 @@
     {{ content_for_header }}
 
     <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    >
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    >
+    {% comment %}
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+      >
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      >
+    {% endcomment %}
 
     <script>
       document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
@@ -73,20 +75,20 @@
       {{ content_for_layout }}
       {% section 'cart-drawer' %}
     </main>
-    {{ 'mobile-menu.js' | asset_url | script_tag }}
-    {{ 'cart-icon.js' | asset_url | script_tag }}
-    {{ 'add-to-cart.js' | asset_url | script_tag }}
+    <script async src="{{ 'mobile-menu.js' | asset_url }}"></script>
+    <script async src="{{ 'cart-icon.js' | asset_url }}"></script>
+    <script async src="{{ 'add-to-cart.js' | asset_url }}"></script>
     <link
       type="text/css"
       href="{{ 'swiper-bundle.min.css' | asset_url }}"
       rel="stylesheet"
     >
     {% if template.name == 'product' %}
-      {{ 'swiper-bundle.min.js' | asset_url | script_tag }}
-      {{ 'swiper.js' | asset_url | script_tag }}
+      <script async src="{{ 'swiper-bundle.min.js' | asset_url }}"></script>
+      <script async src="{{ 'swiper.js' | asset_url }}"></script>
     {% endif %}
     {% if template.name == 'cart' %}
-      {{ 'quantity-select.js' | asset_url | script_tag }}
+      <script async src="{{ 'quantity-select.js' | asset_url }}"></script>
     {% endif %}
   </body>
 </html>

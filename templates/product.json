@@ -4,5 +4,7 @@
       "type": "product"
     }
   },
-  "order": ["product"]
+  "order": [
+    "product"
+  ]
 }

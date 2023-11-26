@@ -9,7 +9,9 @@
             <img
               class="mx-auto max-h-cardHeight transition hover:opacity-50"
               loading="lazy"
-              src="{{ product.featured_image | product_img_url: 'large' }}"
+              height="280"
+              width="280"
+              src="{{ product.featured_image | image_url }}"
               alt="{{ product.title }}"
             >
           </div>
@@ -27,6 +29,8 @@
   "tag": "section",
   "class": "default-collection",
   "limit": 1,
-  "settings": []
+  "settings": [
+
+  ]
 }
 {% endschema %}
